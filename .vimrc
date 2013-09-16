@@ -98,3 +98,5 @@ if has("autocmd")
     " Treat .json files as .js
     autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 endif
+set t_Co=256
+let g:Powerline_symbols = 'unicode'

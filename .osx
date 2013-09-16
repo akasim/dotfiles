@@ -101,7 +101,7 @@ systemsetup -setcomputersleep Off > /dev/null
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
 # Disable Notification Center and remove the menu bar icon
-launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
+#launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
@@ -119,12 +119,12 @@ defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClic
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
 # Trackpad: swipe between pages with three fingers
-defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool true
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerHorizSwipeGesture -int 1
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 1
+#defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool true
+#defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerHorizSwipeGesture -int 1
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 1
 
 # Disable “natural” (Lion-style) scrolling
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+#defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
@@ -148,8 +148,8 @@ defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 # Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
-# Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 0
+# Set a blazingly fast keyboard repeat rate. 0 is extremely fast
+defaults write NSGlobalDomain KeyRepeat -int 1
 
 # Automatically illuminate built-in MacBook keyboard in low light
 defaults write com.apple.BezelServices kDim -bool true
@@ -159,13 +159,13 @@ defaults write com.apple.BezelServices kDimTime -int 300
 # Set language and text formats
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
 # `Inches`, `en_GB` with `en_US`, and `true` with `false`.
-defaults write NSGlobalDomain AppleLanguages -array "en" "nl"
-defaults write NSGlobalDomain AppleLocale -string "en_GB@currency=EUR"
-defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
-defaults write NSGlobalDomain AppleMetricUnits -bool true
+#defaults write NSGlobalDomain AppleLanguages -array "en" "nl"
+#defaults write NSGlobalDomain AppleLocale -string "en_GB@currency=EUR"
+#defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
+#defaults write NSGlobalDomain AppleMetricUnits -bool true
 
 # Set the timezone; see `systemsetup -listtimezones` for other values
-systemsetup -settimezone "Europe/Brussels" > /dev/null
+#systemsetup -settimezone "Europe/Brussels" > /dev/null
 
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
@@ -185,7 +185,7 @@ defaults write com.apple.screencapture location -string "$HOME/Desktop"
 defaults write com.apple.screencapture type -string "png"
 
 # Disable shadow in screenshots
-defaults write com.apple.screencapture disable-shadow -bool true
+#defaults write com.apple.screencapture disable-shadow -bool true
 
 # Enable subpixel font rendering on non-Apple LCDs
 defaults write NSGlobalDomain AppleFontSmoothing -int 2
@@ -286,7 +286,7 @@ defaults write com.apple.finder WarnOnEmptyTrash -bool false
 defaults write com.apple.finder EmptyTrashSecurely -bool true
 
 # Enable AirDrop over Ethernet and on unsupported Macs running Lion
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+#defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
 # Enable the MacBook Air SuperDrive on any Mac
 sudo nvram boot-args="mbasd=1"
@@ -295,8 +295,8 @@ sudo nvram boot-args="mbasd=1"
 chflags nohidden ~/Library
 
 # Remove Dropbox’s green checkmark icons in Finder
-file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
-[ -e "$file" ] && mv -f "$file" "$file.bak"
+#file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
+#[ -e "$file" ] && mv -f "$file" "$file.bak"
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
@@ -327,7 +327,7 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 
 # Don’t group windows by application in Mission Control
 # (i.e. use the old Exposé behavior instead)
-defaults write com.apple.dock expose-group-by-app -bool false
+#defaults write com.apple.dock expose-group-by-app -bool false
 
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
@@ -376,14 +376,14 @@ ln -s /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app /Appli
 # 11: Launchpad
 # 12: Notification Center
 # Top left screen corner → Mission Control
-defaults write com.apple.dock wvous-tl-corner -int 2
-defaults write com.apple.dock wvous-tl-modifier -int 0
+#defaults write com.apple.dock wvous-tl-corner -int 2
+#defaults write com.apple.dock wvous-tl-modifier -int 0
 # Top right screen corner → Desktop
-defaults write com.apple.dock wvous-tr-corner -int 4
-defaults write com.apple.dock wvous-tr-modifier -int 0
+#defaults write com.apple.dock wvous-tr-corner -int 4
+#defaults write com.apple.dock wvous-tr-modifier -int 0
 # Bottom left screen corner → Start screen saver
-defaults write com.apple.dock wvous-bl-corner -int 5
-defaults write com.apple.dock wvous-bl-modifier -int 0
+#defaults write com.apple.dock wvous-bl-corner -int 5
+#defaults write com.apple.dock wvous-bl-modifier -int 0
 
 ###############################################################################
 # Safari & WebKit                                                             #
@@ -399,7 +399,7 @@ defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true
 
 # Hide Safari’s bookmarks bar by default
-defaults write com.apple.Safari ShowFavoritesBar -bool false
+#defaults write com.apple.Safari ShowFavoritesBar -bool false
 
 # Disable Safari’s thumbnail cache for History and Top Sites
 defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
@@ -426,19 +426,19 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 ###############################################################################
 
 # Disable the iTunes store link arrows
-defaults write com.apple.iTunes show-store-link-arrows -bool false
+#defaults write com.apple.iTunes show-store-link-arrows -bool false
 
 # Disable the Genius sidebar in iTunes
-defaults write com.apple.iTunes disableGeniusSidebar -bool true
+#defaults write com.apple.iTunes disableGeniusSidebar -bool true
 
 # Disable radio stations in iTunes
-defaults write com.apple.iTunes disableRadio -bool true
+#defaults write com.apple.iTunes disableRadio -bool true
 
 # Make ⌘ + F focus the search input in iTunes
 # To use these commands in another language, browse iTunes’s package contents,
 # open `Contents/Resources/your-language.lproj/Localizable.strings`, and look
 # for `kHiddenMenuItemTargetSearch`.
-defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Field" "@F"
+#defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Field" "@F"
 
 ###############################################################################
 # Mail                                                                        #
@@ -477,10 +477,10 @@ defaults write com.apple.terminal "Startup Window Settings" -string "Mathias"
 ###############################################################################
 
 # Prevent Time Machine from prompting to use new hard drives as backup volume
-defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+#defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Disable local Time Machine backups
-hash tmutil &> /dev/null && sudo tmutil disablelocal
+#hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 ###############################################################################
 # Address Book, Dashboard, iCal, TextEdit, and Disk Utility                   #
@@ -557,25 +557,25 @@ defaults write org.m0k.transmission WarningLegal -bool false
 ###############################################################################
 
 # Disable smart quotes as it’s annoying for code tweets
-defaults write com.twitter.twitter-mac AutomaticQuoteSubstitutionEnabled -bool false
+#defaults write com.twitter.twitter-mac AutomaticQuoteSubstitutionEnabled -bool false
 
 # Show the app window when clicking the menu icon
-defaults write com.twitter.twitter-mac MenuItemBehavior -int 1
+#defaults write com.twitter.twitter-mac MenuItemBehavior -int 1
 
 # Enable the hidden ‘Develop’ menu
-defaults write com.twitter.twitter-mac ShowDevelopMenu -bool true
+#defaults write com.twitter.twitter-mac ShowDevelopMenu -bool true
 
 # Open links in the background
-defaults write com.twitter.twitter-mac openLinksInBackground -bool true
+#defaults write com.twitter.twitter-mac openLinksInBackground -bool true
 
 # Allow closing the ‘new tweet’ window by pressing `Esc`
-defaults write com.twitter.twitter-mac ESCClosesComposeWindow -bool true
+#defaults write com.twitter.twitter-mac ESCClosesComposeWindow -bool true
 
 # Show full names rather than Twitter handles
-defaults write com.twitter.twitter-mac ShowFullNames -bool true
+#defaults write com.twitter.twitter-mac ShowFullNames -bool true
 
 # Hide the app in the background if it’s not the front-most window
-defaults write com.twitter.twitter-mac HideInBackground -bool true
+#defaults write com.twitter.twitter-mac HideInBackground -bool true
 
 ###############################################################################
 # Kill affected applications                                                  #
