@@ -18,4 +18,5 @@ fi
 unset doIt
 git submodule init
 git submodule update
+cp -f ./vim_colors/* ~/.vim/colors/
 source ~/.bash_profile
