@@ -1,7 +1,12 @@
 # Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH:/opt/zenoss/bin"
-export ZENHOME="/opt/zenoss"
-
+PROMPT_COMMAND='update_terminal_cwd; echo -ne "\033]0; ${PWD##*/}\007"'
+export PATH="$HOME/bin:$PATH"
+export fourxe=http://dev.zenoss.com/svnint/branches/zenoss-4.x
+export fourx=http://dev.zenoss.com/svnint/branches/core/zenoss-4.x
+export sandbox=http://dev.zenoss.com/svnint/sandboxen/core/akasim
+export sandboxe=http://dev.zenoss.com/svnint/sandboxen/akasim
+export LC_ALL=en_US.UTF-8  
+export LANG=en_US.UTF-8
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
@@ -44,13 +49,18 @@ which grunt &> /dev/null && eval "$(grunt --completion=bash)"
 
 # Virtualenvwrapper
 #source $(which virtualenvwrapper.sh)
-#. ~/.powerline/powerline/bindings/bash/powerline.sh
-
+. ~/.powerline/powerline/bindings/bash/powerline.sh
+#. ~/Library/Python/2.7/lib/python/site-packages/powerline//bindings/bash/powerline.sh
 # Add Homebrew to PATH
 export PATH="/usr/local/bin:$PATH"
+export M3_HOME="/Library/Maven/apache-maven-3.1.1"
+export ZENHOME=~/dev/zenoss
 
 if [ -n "$(which brew 2>/dev/null)" ]; then
     if [ -f $(brew --prefix)/etc/bash_completion ]; then
         . $(brew --prefix)/etc/bash_completion
     fi
 fi
+# Powerline
+#. /Users/arif_zenoss//Library/Python/2.7/lib/python/site-packages/powerline -name powerline.sh
+#export TMUX_POWERLINE_CONF=$(find $(python -c "import site; print site.getsitepackages()[0]")/powerline/bindings/tmux -name powerline.conf)

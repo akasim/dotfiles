@@ -26,6 +26,7 @@ if exists("&undodir")
     set undodir=~/.vim/undo
 endif
 
+set rtp+=~/.powerline/powerline/bindings/vim
 " Respect modeline in files
 set modeline
 set modelines=4
@@ -99,5 +100,5 @@ if has("autocmd")
     " Treat .json files as .js
     autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 endif
-set t_Co=256
-let g:Powerline_symbols = 'unicode'
+let g:syntastic_python_flake8_args = '--ignore=W191,E501,E121,E122,E123,E128,E225,W291,E126'
+let b:syntastic_checkers = ['flake8']
