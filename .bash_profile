@@ -61,6 +61,7 @@ if [ -n "$(which brew 2>/dev/null)" ]; then
         . $(brew --prefix)/etc/bash_completion
     fi
 fi
+/usr/local/bin/fish
 # Powerline
 #. /Users/arif_zenoss//Library/Python/2.7/lib/python/site-packages/powerline -name powerline.sh
 #export TMUX_POWERLINE_CONF=$(find $(python -c "import site; print site.getsitepackages()[0]")/powerline/bindings/tmux -name powerline.conf)
